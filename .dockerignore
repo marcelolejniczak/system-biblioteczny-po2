@@ -1,0 +1,13 @@
+.git/
+.gitignore
+.env
+.venv/
+**/__pycache__/
+**/*.py[cod]
+db.sqlite3
+.vscode/
+.DS_Store
+Thumbs.db
+Dockerfile
+docker-compose.yml
+.dockerignore
