@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="{% static 'main/mainPage.css' %}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'main/images/logo.png' %}" alt="Site Logo">
+                </a>
+            </div>
+
+            <form action="{% url 'search' %}" method="GET" class="search-form">
+                <input type="text" name="q" placeholder="Search..." value="{{ request.GET.q }}">
+                <button type="submit">Search</button>
+            </form>
+
+            <div class="nav-auth">
+                {% if user.is_authenticated %}
+                    <span>Hello, {{ user.username }} :3</span>
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit">Log Out</button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'login' %}" class="login-btn">Log In</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+
+    <main>
+    </main>
+</body>
+</html>
