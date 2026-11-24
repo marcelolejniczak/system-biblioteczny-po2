@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
-    <link rel="stylesheet" href="{% static 'main/mainPage.css' %}">
+    <title>{% block title %}System Biblioteczny{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header>
         <nav class="navbar">
             <div class="nav-logo">
                 <a href="{% url 'home' %}">
-                    <img src="{% static 'main/images/logo.png' %}" alt="Site Logo">
+                    <img src="{% static 'images/logo.png' %}" alt="Site Logo">
                 </a>
             </div>
 
@@ -36,6 +36,7 @@
     </header>
 
     <main>
-    </main>
+        {% block content %}{% endblock %}
+    </main> 
 </body>
 </html>
